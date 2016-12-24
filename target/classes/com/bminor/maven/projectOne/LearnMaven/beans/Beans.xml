@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="init" default-destroy-method="destroy">
+
+
+
+	<bean id="person"
+		class="com.bminor.maven.projectOne.LearnMaven.Person"
+		scope="prototype" init-method="onCreate" destroy-method="onDestroy"
+		factory-method="getInstance">
+		<constructor-arg value="777" name="id"></constructor-arg>
+		<constructor-arg value="Rachel" name="name"></constructor-arg>
+		<property name="taxId" value="123"></property>
+		<property name="address" ref="address">
+		</property>
+	</bean>
+	<bean id="address" class="com.bminor.maven.projectOne.LearnMaven.Address">
+		<constructor-arg name="street" value="123 Main St"></constructor-arg>
+		<constructor-arg name="postcode" value="44870"></constructor-arg>
+	</bean>
+</beans>
