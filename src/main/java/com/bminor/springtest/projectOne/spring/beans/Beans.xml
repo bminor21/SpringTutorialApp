@@ -22,7 +22,7 @@
 			key-type="com.bminor.springtest.projectOne.spring.Phone.PhoneType"
 			value-type="com.bminor.springtest.projectOne.spring.Phone">
 		<entry
-			key="MOBILE" value-ref="phone">
+			key="UNKNOWN" value-ref="phone">
 		</entry>
 		</util:map>
 		</property>
@@ -34,6 +34,7 @@
 	<bean id="personfactory" class="com.bminor.springtest.projectOne.spring.PersonFactory">
 	</bean>
 	<bean id="phone"
-		class="com.bminor.springtest.projectOne.spring.Phone" p:phoneNumber="1234567890" p:phoneType="MOBILE">
+		class="com.bminor.springtest.projectOne.spring.Phone"
+		p:phoneNumber="1234567890" p:phoneType="UNKNOWN" scope="prototype">
 	</bean>
 </beans>

@@ -15,7 +15,6 @@ public class Person {
 	private Map<PhoneType, Phone> phoneNumbers;
 	
 	public static Person getInstance(int id, String name){
-		System.out.println("Creating person using Factory MEthod");
 		return new Person(id, name);
 	}
 

@@ -13,7 +13,7 @@ public class Address {
 	}
 
 	public void init(){
-		System.out.println("Bean created");
+		System.out.println("Address Bean created");
 	}
 
 	@Override

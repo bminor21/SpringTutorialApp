@@ -2,7 +2,7 @@ package com.bminor.springtest.projectOne.spring;
 
 public class Phone {
 	
-	public enum PhoneType { HOME, MOBILE, WORK } 
+	public enum PhoneType { HOME, MOBILE, WORK, UNKNOWN } 
 	
 	private String phoneNumber;
 	private PhoneType phoneType;
