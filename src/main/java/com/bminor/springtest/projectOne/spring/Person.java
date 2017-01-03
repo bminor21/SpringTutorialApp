@@ -1,6 +1,8 @@
 package com.bminor.springtest.projectOne.spring;
 
-import java.util.List;
+import java.util.*;
+
+import com.bminor.springtest.projectOne.spring.Phone.PhoneType;
 
 public class Person {
 	
@@ -10,7 +12,7 @@ public class Person {
 	private int taxId;
 	private Address address;
 	
-	private List<Phone> phoneNumbers;
+	private Map<PhoneType, Phone> phoneNumbers;
 	
 	public static Person getInstance(int id, String name){
 		System.out.println("Creating person using Factory MEthod");
@@ -23,6 +25,7 @@ public class Person {
 		super();
 		this.id = id;
 		this.name = name;
+		phoneNumbers = new HashMap<PhoneType, Phone>();
 	}
 	
 	public void onCreate(){
@@ -41,22 +44,18 @@ public class Person {
 		this.address = address;
 	}
 
-	public List<Phone> getPhoneNumbers() {
+	public Map<PhoneType, Phone> getPhoneNumbers() {
 		return phoneNumbers;
 	}
 
-	public void setPhoneNumbers(List<Phone> phoneNumbers) {
+	public void setPhoneNumbers(Map<PhoneType, Phone> phoneNumbers) {
 		this.phoneNumbers = phoneNumbers;
 	}
+
 
 	@Override
 	public String toString() {
 		return "Person [id=" + id + ", name=" + name + ", taxId=" + taxId + ", address=" + address + ", phoneNumbers="
 				+ phoneNumbers + "]";
-	}
-
-	public void speak()
-	{
-		System.out.println("Hello");
 	}
 }

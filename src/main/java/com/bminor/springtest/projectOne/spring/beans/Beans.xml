@@ -3,12 +3,13 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	default-init-method="init" default-destroy-method="destroy"
 	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 
 
 
-	<bean id="person"
-		class="com.bminor.springtest.projectOne.spring.Person"
+	<bean id="person" class="com.bminor.springtest.projectOne.spring.Person"
 		scope="prototype" init-method="onCreate" destroy-method="onDestroy"
 		factory-method="createPerson" factory-bean="personfactory">
 		<constructor-arg value="777" name="id"></constructor-arg>
@@ -17,13 +18,13 @@
 		<property name="address" ref="address">
 		</property>
 		<property name="phoneNumbers">
-			<list>
-	<ref bean="phone" />
-	<ref bean="phone" />
-	<ref bean="phone" />
-	<ref bean="phone" />
-				
-			</list>
+		<util:map
+			key-type="com.bminor.springtest.projectOne.spring.Phone.PhoneType"
+			value-type="com.bminor.springtest.projectOne.spring.Phone">
+		<entry
+			key="MOBILE" value-ref="phone">
+		</entry>
+		</util:map>
 		</property>
 	</bean>
 

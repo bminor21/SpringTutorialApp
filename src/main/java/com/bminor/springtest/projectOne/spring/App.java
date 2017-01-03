@@ -11,7 +11,6 @@ public class App
     	
     	
     	Person person = (Person)context.getBean("person");
-    	person.speak();
     	
     	Address address = (Address)context.getBean("address");
     	
@@ -20,6 +19,12 @@ public class App
     	System.out.println(person);
     	System.out.println(address);
     	System.out.println(phone);
+    	
+    	if( person.getPhoneNumbers().containsKey( Phone.PhoneType.MOBILE ) )
+    	{
+    		System.out.print("Person has the following number in the map: ");
+    		System.out.println( person.getPhoneNumbers().get( Phone.PhoneType.MOBILE).toString() );
+    	}
     	
     	( (ClassPathXmlApplicationContext) context).close();
     }
