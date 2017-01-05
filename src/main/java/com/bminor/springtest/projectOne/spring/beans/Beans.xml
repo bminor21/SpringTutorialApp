@@ -15,8 +15,6 @@
 		<constructor-arg value="777" name="id"></constructor-arg>
 		<constructor-arg value="Rachel" name="name"></constructor-arg>
 		<property name="taxId" value="123"></property>
-		<property name="address" ref="address">
-		</property>
 		<property name="phoneNumbers">
 		<util:map
 			key-type="com.bminor.springtest.projectOne.spring.Phone.PhoneType"
@@ -28,13 +26,15 @@
 		</property>
 	</bean>
 
-	<bean id="address" class="com.bminor.springtest.projectOne.spring.Address" p:street="23 Cherry Lane" p:postcode="12345">
+	<bean id="address"
+		class="com.bminor.springtest.projectOne.spring.Address"
+		p:street="23 Cherry Lane" p:postcode="12345" autowire="byName">
 	</bean>
-	
+
 	<bean id="personfactory" class="com.bminor.springtest.projectOne.spring.PersonFactory">
 	</bean>
 	<bean id="phone"
 		class="com.bminor.springtest.projectOne.spring.Phone"
-		p:phoneNumber="1234567890" p:phoneType="UNKNOWN" scope="prototype">
+		p:phoneNumber="000000000" p:phoneType="UNKNOWN" scope="prototype">
 	</bean>
 </beans>
